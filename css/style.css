@@ -1,0 +1,150 @@
+
+/* RESET */
+*,
+::after,
+::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  scroll-behavior: smooth;
+}
+
+picture,
+img,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/* END RESET */
+
+/* CUSTOM PROPERTIES */
+:root {
+  /* Colors */
+--clr-bg: #CED6D9;
+--clr-text: #3A5159;
+  /* End  colors */
+
+  /* Typography */
+
+  /* End typography */
+}
+/* END CUSTOM PROPERTIES */
+
+/* GENERAL STYLE */
+body {
+  background-color: var(--clr-bg);
+  text-align: center;
+  padding: 4rem;
+  color: var(--clr-text);
+}
+/* END GENERAL STYLE */
+
+/* BLOCKS */
+
+.panels {
+  --GAP: 1rem;
+  width: 80vw;
+  align-items: center;
+  margin-inline: auto;
+}
+
+.panel {
+  --radius: 2rem;
+  position: relative;
+  flex:0.5;
+  cursor: pointer;
+  height: 500px;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: var(--radius);
+  /* transform: scaleX(0.4); */
+  transition-property: flex;
+  transition-duration: 0.6s;
+  transition-timing-function: ease-in-out;
+  transform-origin: left;
+
+}
+
+.panel.expanded {
+  flex: 2;
+  /* transform: scaleX(1); */
+}
+
+.panel__label {
+  position: absolute;
+  bottom: 1em;
+  left: 1em;
+  color: var(--clr-bg);
+  font-size: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.expanded .panel__label {
+  opacity: 1;
+  transition-delay: 0.3s;
+}
+/* END BLOCKS */
+
+/* ELEMENTS */
+
+/* END ELEMENTS */
+
+/* MODIFIERS */
+
+/* END MODIFIERS */
+
+/* UTILITY */
+.flex {
+  display: flex;
+  gap: var(--GAP, 1rem);
+}
+.grid {
+  display: grid;
+  gap: var(--GAP, 1rem);
+}
+
+.box {
+  max-width: 75ch;
+  padding-inline: var(--PADDING, 1em);
+  margin-inline: auto;
+}
+
+.sr-only {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+
+/* END UTILITY */
+
+/* MEDIA */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* END MEDIA */
